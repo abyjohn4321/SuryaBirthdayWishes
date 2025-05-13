@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Surya</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .background {
+      background: url(suryaghibili1.png) no-repeat center center/cover;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      filter: brightness(0.8);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 1rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 800px;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .countdown {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .button {
+      background-color: #ff4081;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: #e73370;
+    }
+
+    .music-button {
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .countdown {
+        font-size: 1.2rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <h1>Happy 27th Birthday, Surya 🎂</h1>
+    <div class="countdown" id="countdown"></div>
+
+    <!-- Music button -->
+    <div class="music-button">
+      <button class="button" onclick="document.getElementById('birthdayMusic').play()">Aaj Se Teri.. 🎶</button>
+    </div>
+    <audio id="birthdayMusic" src="AajSeTeri2.mp3"></audio>
+
+    <p>
+      <strong>Happy Birthday, Surya! 🎉</strong><br /><br />
+      Wishing you a very happy birthday, Surya!<br />
+      Your journey so far has been nothing short of inspiring. You've worked hard, taken on responsibilities beyond your age, and stood strong for your family through every up and down.
+      <br /><br />
+      Even while being far from home, living alone in a different country, and facing the daily challenges of your nursing job — you’ve managed it all with quiet strength and patience.
+      <br /><br />
+      Your love and care for everyone around you, even from miles away, shows the beautiful heart you have. I hope this new year brings you peace, good health, and all the happiness you truly deserve.
+      <br /><br />
+      Always proud of you.<br />
+      With warm wishes,
+    </p>
+
+    <a href="index3.html" class="button">My Gift for You 🎁</a>
+  </div>
+
+  <script>
+    const countdown = document.getElementById('countdown');
+    const birthday = new Date('May 14, 2025 00:00:00').getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = birthday - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0) {
+        countdown.innerHTML = "Happy Birthday, Surya! 🎉";
+      } else {
+        countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until her 27th birthday.`;
+      }
+    };
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
